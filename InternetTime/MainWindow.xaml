@@ -1,0 +1,35 @@
+﻿<Window x:Class="RS.InternetTime.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="90" Width="150" WindowStyle="None" Background="{x:Null}" AllowsTransparency="True"        
+        Topmost="True" ShowInTaskbar="False"
+        MouseDown="Window_MouseDown"
+        MouseUp="Window_MouseUp">
+    <Grid>
+        <Label x:Name="timeDisplay"
+               Content="@---"
+               HorizontalAlignment="Stretch" 
+               HorizontalContentAlignment="Center"
+               VerticalAlignment="Stretch"
+               VerticalContentAlignment="Center" FontSize="48" Foreground="#FF70738F"
+               MouseDoubleClick="timeDisplay_MouseDoubleClick"
+               ToolTip="Double click to exit. Right click for menu">
+            <Label.Style>
+                <Style>
+                    <Setter Property="Label.Background" Value="{x:Null}"/>
+                    <Style.Triggers>
+                        <Trigger Property="Border.IsMouseOver" Value="True">
+                            <Setter Property="Border.Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+            <Label.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="AboutMenuItem_Click" Header="_About" />
+                    <MenuItem Click="ExitMenuItem_Click" Header="E_xit" />
+                </ContextMenu>
+            </Label.ContextMenu>
+        </Label>
+    </Grid>
+</Window>
